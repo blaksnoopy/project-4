@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <h1>PROJECT-IV</h1>
       </header>
-          <div class="container">
+          {/* <div class="container">
               <section id="content">
                   <form action="">
                       <h1>Sign Up Here</h1>
@@ -18,13 +18,16 @@ function App() {
                           <input type="password" placeholder="Password" required="" id="password" />
                       </div>
                       <div>
-                          <input type="submit" value="Log in" />
-                          {/* <a href="#">Lost your password?</a>
-                          <a href="#">Register</a> */}
+                          <input type="password" placeholder="Confirm Password" required="" id="password" />
+                      </div>
+                      <div>
+                          <input type="submit" value="Sign Up" />
+                          <a href="#">Lost your password?</a>
+                          <a href="#">Register</a>
                       </div>
                   </form>
               </section>
-          </div>
+          </div> */}
     </div>
   );
 }
