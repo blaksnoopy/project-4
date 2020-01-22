@@ -1,22 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Teams.css';
 
-function Teams(props) {
+const Teams = (props) => {
+    
 	return (
 	  <div>
-	    <h1>{props.teams.map((team, index) => {
+        <h1>{props.teams.map((team, idx) => {
             return (
-                <div key={index}>
-                    <Link 
-                        to=''
+                <div>
+                    <button type='button' className='btn-default Teams-btn'>
+                        <Link 
+                            to={`/teams/${idx}`}
+                            key={team.name}
                         >
-                        {team.name}
-                    </Link>
+                            {team.name}
+                        </Link>
+                    </button>
                 </div>
                     )
-        })}</h1>
+            })}
+        </h1> 
 	  </div>
-	);
+    );
 }
 
 export default Teams;

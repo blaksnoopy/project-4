@@ -6,6 +6,8 @@ import HomePage from '../HomePage/HomePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import Teams from '../../components/Teams/Teams';
+import TeamPage from '../../components/TeamPage/TeamPage';
 
 
 class App extends Component {
@@ -17,16 +19,21 @@ class App extends Component {
       user: userService.getUser()
     };
   }
+  
+  getOneTeam = (idx) => {
+    return this.state.teams[idx];
+  }
 
   async componentDidMount() {
     const players = await getAllNbaPlayers();
     const teams = await getAllTeams();
-    const playerNames = [];
+    const playerInfo = [];
     const teamNames = [];
     players.map((player) => {
-      playerNames.push({ 
+      playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
+        team: player.team.full_name,
         id: player.id
       })
     })
@@ -37,18 +44,19 @@ class App extends Component {
       })
     });
     this.setState({
-      players: playerNames,
+      players: playerInfo,
       teams: teamNames
     });
+    console.log(playerInfo)
   }
 
   handleLogout = () => {
     userService.logout();
-    this.setState({user: null});
+    this.setState({ user: null });
   }
 
   handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   render() {
@@ -57,30 +65,47 @@ class App extends Component {
         <header className="App-header">
           <h1>PROJECT IV</h1>
         </header>
-          <div>
-          </div>
-            <Switch>
-              <Route exact path='/' render={() => 
-                <HomePage 
-                players={this.state.players} 
-                teams={this.state.teams}
-                user={this.state.user}
-                handleLogout={this.handleLogout}
-                />
-              } />
-              <Route exact path='/signup' render={({ history }) => 
-                <SignupPage
-                  history={history}
-                  handleSignupOrLogin={this.handleSignupOrLogin}
-                />
-              }/>
-              <Route exact path='/login' render={({ history }) => 
-                <LoginPage
-                  history={history}
-                  handleSignupOrLogin={this.handleSignupOrLogin}
-                />
-              }/>
-            </Switch>
+        <Switch>
+          <Route exact path='/' render={() =>
+            <HomePage
+              players={this.state.players}
+              teams={this.state.teams}
+              user={this.state.user}
+              handleLogout={this.handleLogout}
+              getOneTeam={this.getOneTeam}
+            />
+          } />
+          <Route exact path='/signup' render={({ history }) =>
+            <SignupPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          } />
+          <Route exact path='/login' render={({ history }) =>
+            <LoginPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          } />
+          <Route exact path='/teams' render={(props) =>
+            <Teams
+              history={props.history}
+              {...props}
+              teams={this.state.teams}
+              players={this.state.players}
+              user={this.state.user}
+            />
+          } />
+          <Route path='/teams/:idx' render={(props) =>
+            <TeamPage
+              {...props}
+              getOneTeam={this.getOneTeam}
+              teams={this.state.teams}
+              players={this.state.players}
+              user={this.state.user}
+            />
+          } /> 
+        </Switch>
       </div>
     );
   }

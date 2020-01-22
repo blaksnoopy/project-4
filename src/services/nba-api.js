@@ -1,5 +1,5 @@
 export function getAllNbaPlayers() {
-    return fetch("https://free-nba.p.rapidapi.com/players?page=0&per_page=25", {
+    return fetch("https://free-nba.p.rapidapi.com/players?page=0&per_page=5000", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "free-nba.p.rapidapi.com",
