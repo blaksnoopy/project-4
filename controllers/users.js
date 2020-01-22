@@ -26,6 +26,7 @@ async function login(req, res) {
 
 async function signup(req, res) {
   const user = new User(req.body);
+  console.log("SIGN UP HIT, USER: ", user)
   try {
     await user.save();
     const token = createJWT(user);
