@@ -389,7 +389,6 @@ class App extends Component {
           <h1 className='h1-header'>REACT NBA API</h1>
         </header>
         <Switch>
-          
           <Route exact path='/' render={() =>
             <HomePage
               players={this.state.players}
@@ -427,6 +426,7 @@ class App extends Component {
               teams={this.state.teams}
               players={this.state.players}
               user={this.state.user}
+              handleLogout={this.handleLogout}
             />
           } /> 
         </Switch>

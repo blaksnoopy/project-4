@@ -21,11 +21,11 @@ const TeamPage = (props) => {
     return (
         <div className='TeamPage'>
             <div className='navbar-div'>
-                <Link className='navlink' to='' onClick={props.handleLogout}>LOG OUT</Link>
+                <Link className='navlink' to='/' onClick={props.handleLogout}>LOG OUT</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 <span>WELCOME, {props.user.name}</span>
                 &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <Link to='/'>GO BACK</Link>
+                <Link to='/'>&larr;GO BACK</Link>
             </div>
             {team ?
                 <>
