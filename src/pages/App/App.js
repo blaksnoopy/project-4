@@ -57,8 +57,9 @@ class App extends Component {
   getOneTeam = (idx) => {
     return this.state.teams[idx];
   }
-
+  
   async componentDidMount() {
+    const teams = await getAllTeams();
     const players1 = await getAllNbaPlayers1();
     const players2 = await getAllNbaPlayers2();
     const players3 = await getAllNbaPlayers3();
@@ -92,276 +93,275 @@ class App extends Component {
     const players31 = await getAllNbaPlayers31();
     const players32 = await getAllNbaPlayers32();
     const players33 = await getAllNbaPlayers33();
-    const teams = await getAllTeams();
     const playerInfo = [];
     const teamNames = [];
 
-    players1.map((player) => {
-      playerInfo.push({
+    players1.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players2.map((player) => {
-      playerInfo.push({
+    players2.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players3.map((player) => {
-      playerInfo.push({
+    players3.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players4.map((player) => {
-      playerInfo.push({
+    players4.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players5.map((player) => {
-      playerInfo.push({
+    players5.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players6.map((player) => {
-      playerInfo.push({
+    players6.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players7.map((player) => {
-      playerInfo.push({
+    players7.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players8.map((player) => {
-      playerInfo.push({
+    players8.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players9.map((player) => {
-      playerInfo.push({
+    players9.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players10.map((player) => {
-      playerInfo.push({
+    players10.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players11.map((player) => {
-      playerInfo.push({
+    players11.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players12.map((player) => {
-      playerInfo.push({
+    players12.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players13.map((player) => {
-      playerInfo.push({
+    players13.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players14.map((player) => {
-      playerInfo.push({
+    players14.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players15.map((player) => {
-      playerInfo.push({
+    players15.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players16.map((player) => {
-      playerInfo.push({
+    players16.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players17.map((player) => {
-      playerInfo.push({
+    players17.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players18.map((player) => {
-      playerInfo.push({
+    players18.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players19.map((player) => {
-      playerInfo.push({
+    players19.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players20.map((player) => {
-      playerInfo.push({
+    players20.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players21.map((player) => {
-      playerInfo.push({
+    players21.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players22.map((player) => {
-      playerInfo.push({
+    players22.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players23.map((player) => {
-      playerInfo.push({
+    players23.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players24.map((player) => {
-      playerInfo.push({
+    players24.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players25.map((player) => {
-      playerInfo.push({
+    players25.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players26.map((player) => {
-      playerInfo.push({
+    players26.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players27.map((player) => {
-      playerInfo.push({
+    players27.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players28.map((player) => {
-      playerInfo.push({
+    players28.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players29.map((player) => {
-      playerInfo.push({
+    players29.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players30.map((player) => {
-      playerInfo.push({
+    players30.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players31.map((player) => {
-      playerInfo.push({
+    players31.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players32.map((player) => {
-      playerInfo.push({
+    players32.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    players33.map((player) => {
-      playerInfo.push({
+    players33.forEach((player) => {
+       playerInfo.push({
         first_name: player.first_name,
         last_name: player.last_name,
         team: player.team.full_name,
         id: player.id
       })
     })
-    teams.map((team) => {
-      teamNames.push({
+    teams.forEach((team) => {
+       teamNames.push({
         name: team.full_name,
         id: team.id
       })
@@ -384,10 +384,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="background"></div>
         <header className="App-header">
-          <h1>PROJECT IV</h1>
+          <h1 className='h1-header'>REACT NBA API</h1>
         </header>
         <Switch>
+          
           <Route exact path='/' render={() =>
             <HomePage
               players={this.state.players}

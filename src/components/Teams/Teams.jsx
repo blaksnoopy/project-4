@@ -6,21 +6,25 @@ const Teams = (props) => {
     
 	return (
 	  <div>
-        <h1>{props.teams.map((team, idx) => {
+        {props.teams ?  
+        <h1 className='team-list'>{props.teams.map((team, idx) => {
             return (
-                <div>
-                    <button type='button' className='btn-default Teams-btn'>
-                        <Link 
-                            to={`/teams/${idx}`}
-                            key={team.name}
-                        >
+                <div key={team.name} className='team-card'>
+                    <Link 
+                        to={`/teams/${idx}`}
+                        key={team.name}
+                    >
+                        <button type='button' className='btn-default Teams-btn'>
                             {team.name}
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
                 </div>
                     )
             })}
         </h1> 
+        :
+        <h3>Loading...</h3>
+        }
 	  </div>
     );
 }

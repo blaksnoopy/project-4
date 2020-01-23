@@ -1,10 +1,40 @@
 .App-header {
   text-align: center;
   background-color: black;
-  color: white;
+  color: cornflowerblue;
 }
 
 .App {
   text-align: center;
 }
+
+.h1-header {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-div {
+  font-size: 24px;
+  color: black;
+  background-color: cornflowerblue;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: aliceblue;
+}
+
+.loading {
+  color: red;
+}
+
+.btn-default:hover {
+  color: cornflowerblue;
+}
+
+
+
 
