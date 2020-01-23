@@ -10,7 +10,13 @@ const TeamPage = (props) => {
         {team ?
         <>
           <h1>{team.name}</h1>
-          <p></p>
+            {props.players.map((player) => {
+                return (
+                    player.team === team.name ?
+                    <h3>{player.first_name} {player.last_name}</h3>
+                :
+                <h3></h3>
+            )})}
         </>
           :
           <h3>Loading...</h3>
