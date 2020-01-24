@@ -8,6 +8,7 @@ const addUserToReq = require('../../config/auth');
 
 // ---------------------Protected Routes ------------------
 router.use(addUserToReq);
-router.get('/favplayers', favPlayersCtrl.getFavPlayers);
-router.post('/favplayers', favPlayersCtrl.addFavPlayers);
+router.get('/favPlayers', favPlayersCtrl.getFavPlayers);
+router.post('/favPlayers', favPlayersCtrl.addFavPlayers);
 
+module.exports = router;

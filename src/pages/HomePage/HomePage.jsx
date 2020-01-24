@@ -6,9 +6,11 @@ const HomePage = (props) => {
     let signedIn = props.user ?
         <div>
             <div className='navbar-div'>
-                <Link className='navlink' to='' onClick={props.handleLogout}><span class="glyphicon glyphicon-log-out"></span> LOG OUT</Link>
+                <Link className='navlink' to='' onClick={props.handleLogout}><span className="glyphicon glyphicon-log-out"></span> LOG OUT</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
             <span>WELCOME, {props.user.name}</span>
+                &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <Link to='/favplayers'>{props.user.name}'s FAVORITE PLAYERS</Link>
             </div>
             <div>
                 {props.teams.length ?

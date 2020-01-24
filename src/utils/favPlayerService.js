@@ -20,6 +20,7 @@ export function addFavPlayer(favPlayer) {
     return fetch(BASE_URL + '/favPlayers', {
         method: 'POST',
         headers: {
+            'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + tokenService.getToken()
         },
         body:JSON.stringify(favPlayer)

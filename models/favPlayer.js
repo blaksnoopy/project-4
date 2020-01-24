@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const favPlayerSchema = new mongoose.Schema({
   name: String,
-  // user: String,
+  user: String,
 }, {
   timestamps: true
 });

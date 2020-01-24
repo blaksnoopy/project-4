@@ -1,7 +1,7 @@
 const FavPlayer = require('../models/favPlayer');
 
 
-module.exports {
+module.exports = {
     getFavPlayers,
     addFavPlayers,
 }
