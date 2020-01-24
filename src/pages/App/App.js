@@ -9,40 +9,42 @@ import Teams from '../../components/Teams/Teams';
 import TeamPage from '../../components/TeamPage/TeamPage';
 import { 
   getAllNbaPlayers1, 
-  getAllNbaPlayers2, 
-  getAllNbaPlayers3, 
-  getAllNbaPlayers4, 
-  getAllNbaPlayers5, 
-  getAllNbaPlayers6, 
-  getAllNbaPlayers7, 
-  getAllNbaPlayers8, 
-  getAllNbaPlayers9, 
-  getAllNbaPlayers10, 
-  getAllNbaPlayers11, 
-  getAllNbaPlayers12, 
-  getAllNbaPlayers13, 
-  getAllNbaPlayers14, 
-  getAllNbaPlayers15, 
-  getAllNbaPlayers16, 
-  getAllNbaPlayers17, 
-  getAllNbaPlayers18, 
-  getAllNbaPlayers19, 
-  getAllNbaPlayers20, 
-  getAllNbaPlayers21, 
-  getAllNbaPlayers22, 
-  getAllNbaPlayers23, 
-  getAllNbaPlayers24, 
-  getAllNbaPlayers25, 
-  getAllNbaPlayers26, 
-  getAllNbaPlayers27, 
-  getAllNbaPlayers28, 
-  getAllNbaPlayers29, 
-  getAllNbaPlayers30, 
-  getAllNbaPlayers31, 
-  getAllNbaPlayers32, 
-  getAllNbaPlayers33, 
+  // getAllNbaPlayers2, 
+  // getAllNbaPlayers3, 
+  // getAllNbaPlayers4, 
+  // getAllNbaPlayers5, 
+  // getAllNbaPlayers6, 
+  // getAllNbaPlayers7, 
+  // getAllNbaPlayers8, 
+  // getAllNbaPlayers9, 
+  // getAllNbaPlayers10, 
+  // getAllNbaPlayers11, 
+  // getAllNbaPlayers12, 
+  // getAllNbaPlayers13, 
+  // getAllNbaPlayers14, 
+  // getAllNbaPlayers15, 
+  // getAllNbaPlayers16, 
+  // getAllNbaPlayers17, 
+  // getAllNbaPlayers18, 
+  // getAllNbaPlayers19, 
+  // getAllNbaPlayers20, 
+  // getAllNbaPlayers21, 
+  // getAllNbaPlayers22, 
+  // getAllNbaPlayers23, 
+  // getAllNbaPlayers24, 
+  // getAllNbaPlayers25, 
+  // getAllNbaPlayers26, 
+  // getAllNbaPlayers27, 
+  // getAllNbaPlayers28, 
+  // getAllNbaPlayers29, 
+  // getAllNbaPlayers30, 
+  // getAllNbaPlayers31, 
+  // getAllNbaPlayers32, 
+  // getAllNbaPlayers33, 
   getAllTeams } 
   from '../../services/nba-api';
+import FavoritePlayer from '../../components/FavPlayers/FavPlayers';
+import favPlayerService from '../../utils/favPlayerService';
 
 class App extends Component {
   constructor() {
@@ -50,7 +52,8 @@ class App extends Component {
     this.state = {
       teams: [],
       players: [],
-      user: userService.getUser()
+      user: userService.getUser(),
+      favPlayers: []
     };
   }
   
@@ -59,42 +62,49 @@ class App extends Component {
   }
   
   async componentDidMount() {
+    // const user = await userService.getUser();
+    // this.setState({user: user});
+    // let favPlayers = []
+    // if (user) {
+    //   favPlayers = await favPlayerService.getFavPlayers();
+    // }
+    // this.setState({favPlayers: favPlayers});
     const teams = await getAllTeams();
-    const players1 = await getAllNbaPlayers1();
-    const players2 = await getAllNbaPlayers2();
-    const players3 = await getAllNbaPlayers3();
-    const players4 = await getAllNbaPlayers4();
-    const players5 = await getAllNbaPlayers5();
-    const players6 = await getAllNbaPlayers6();
-    const players7 = await getAllNbaPlayers7();
-    const players8 = await getAllNbaPlayers8();
-    const players9 = await getAllNbaPlayers9();
-    const players10 = await getAllNbaPlayers10();
-    const players11 = await getAllNbaPlayers11();
-    const players12 = await getAllNbaPlayers12();
-    const players13 = await getAllNbaPlayers13();
-    const players14 = await getAllNbaPlayers14();
-    const players15 = await getAllNbaPlayers15();
-    const players16 = await getAllNbaPlayers16();
-    const players17 = await getAllNbaPlayers17();
-    const players18 = await getAllNbaPlayers18();
-    const players19 = await getAllNbaPlayers19();
-    const players20 = await getAllNbaPlayers20();
-    const players21 = await getAllNbaPlayers21();
-    const players22 = await getAllNbaPlayers22();
-    const players23 = await getAllNbaPlayers23();
-    const players24 = await getAllNbaPlayers24();
-    const players25 = await getAllNbaPlayers25();
-    const players26 = await getAllNbaPlayers26();
-    const players27 = await getAllNbaPlayers27();
-    const players28 = await getAllNbaPlayers28();
-    const players29 = await getAllNbaPlayers29();
-    const players30 = await getAllNbaPlayers30();
-    const players31 = await getAllNbaPlayers31();
-    const players32 = await getAllNbaPlayers32();
-    const players33 = await getAllNbaPlayers33();
     const playerInfo = [];
     const teamNames = [];
+    const players1 = await getAllNbaPlayers1();
+    // const players2 = await getAllNbaPlayers2();
+    // const players3 = await getAllNbaPlayers3();
+    // const players4 = await getAllNbaPlayers4();
+    // const players5 = await getAllNbaPlayers5();
+    // const players6 = await getAllNbaPlayers6();
+    // const players7 = await getAllNbaPlayers7();
+    // const players8 = await getAllNbaPlayers8();
+    // const players9 = await getAllNbaPlayers9();
+    // const players10 = await getAllNbaPlayers10();
+    // const players11 = await getAllNbaPlayers11();
+    // const players12 = await getAllNbaPlayers12();
+    // const players13 = await getAllNbaPlayers13();
+    // const players14 = await getAllNbaPlayers14();
+    // const players15 = await getAllNbaPlayers15();
+    // const players16 = await getAllNbaPlayers16();
+    // const players17 = await getAllNbaPlayers17();
+    // const players18 = await getAllNbaPlayers18();
+    // const players19 = await getAllNbaPlayers19();
+    // const players20 = await getAllNbaPlayers20();
+    // const players21 = await getAllNbaPlayers21();
+    // const players22 = await getAllNbaPlayers22();
+    // const players23 = await getAllNbaPlayers23();
+    // const players24 = await getAllNbaPlayers24();
+    // const players25 = await getAllNbaPlayers25();
+    // const players26 = await getAllNbaPlayers26();
+    // const players27 = await getAllNbaPlayers27();
+    // const players28 = await getAllNbaPlayers28();
+    // const players29 = await getAllNbaPlayers29();
+    // const players30 = await getAllNbaPlayers30();
+    // const players31 = await getAllNbaPlayers31();
+    // const players32 = await getAllNbaPlayers32();
+    // const players33 = await getAllNbaPlayers33();
 
     players1.forEach((player) => {
        playerInfo.push({
@@ -104,262 +114,262 @@ class App extends Component {
         id: player.id
       })
     })
-    players2.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players3.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players4.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players5.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players6.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players7.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players8.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players9.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players10.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players11.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players12.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players13.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players14.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players15.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players16.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players17.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players18.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players19.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players20.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players21.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players22.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players23.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players24.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players25.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players26.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players27.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players28.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players29.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players30.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players31.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players32.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
-    players33.forEach((player) => {
-       playerInfo.push({
-        first_name: player.first_name,
-        last_name: player.last_name,
-        team: player.team.full_name,
-        id: player.id
-      })
-    })
+    // players2.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players3.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players4.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players5.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players6.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players7.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players8.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players9.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players10.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players11.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players12.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players13.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players14.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players15.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players16.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players17.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players18.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players19.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players20.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players21.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players22.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players23.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players24.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players25.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players26.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players27.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players28.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players29.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players30.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players31.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players32.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
+    // players33.forEach((player) => {
+    //    playerInfo.push({
+    //     first_name: player.first_name,
+    //     last_name: player.last_name,
+    //     team: player.team.full_name,
+    //     id: player.id
+    //   })
+    // })
     teams.forEach((team) => {
        teamNames.push({
         name: team.full_name,
@@ -381,12 +391,16 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
+  addFavPlayer = (name) => {
+    this.setState({ favPlayers: favPlayerService.addFavPlayers({name}) })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="background"></div>
         <header className="App-header">
-          <h1 className='h1-header'>REACT NBA API</h1>
+          <h1 className='h1-header'>&#127936; REACT NBA API &#127936;</h1>
         </header>
         <Switch>
           <Route exact path='/' render={() =>
@@ -427,6 +441,16 @@ class App extends Component {
               players={this.state.players}
               user={this.state.user}
               handleLogout={this.handleLogout}
+              favPlayers={this.state.favPlayers}
+            />
+          } /> 
+          <Route path='/favplayers' render={(props) =>
+            <FavoritePlayer
+              {...props}
+              user={this.state.user}
+              handleLogout={this.handleLogout}
+              favPlayers={this.state.favPlayers}
+              addFavPlayer={this.addFavPlayer}
             />
           } /> 
         </Switch>
